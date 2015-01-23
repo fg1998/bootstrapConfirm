@@ -2,7 +2,6 @@
     bootstrapConfirm https://github.com/fg1998/bootstrapConfirm
     Copyright 2015 Fernando Garcia fg1998@gmail.com
 */
-
 var defaults = {
     message: null,
     cancelCallBack: null,
@@ -13,14 +12,13 @@ var defaults = {
 };
 
 
-
 $.fn.bootstrapConfirm = function (options) {
 
     var settings = $.extend({}, defaults, options);
 
     $(this).on('click', function (e) {
 
-        var modal = "<div class='modal fade' id='bootstrapConfirm'> \
+        var modal = "<div class='modal fade' id='" + settings.modalId + "'> \
                             <div class='modal-dialog'> \
                                 <div class='modal-content'> \
                                     <div class='modal-header'> \
@@ -40,10 +38,10 @@ $.fn.bootstrapConfirm = function (options) {
         $('body').append(modal)
 
         //Show the modal
-        $('#bootstrapConfirm').modal("show");
+        $('#' + settings.modalId).modal("show");
 
         //Remove modal from DOM after hide, events on cancel/confirm buttons
-        $('#bootstrapConfirm').on('hidden.bs.modal', function (e) {
+        $('#' + settings.modalId).on('hidden.bs.modal', function (e) {
             $('#bootstrapConfirm').remove();
         }).on('click', '#bootstrapConfirmCancelButton', function (e) {
             settings.cancelCallBack.call(this)
