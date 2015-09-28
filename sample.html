@@ -1,0 +1,52 @@
+
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+<body>
+	<div class='container'>
+		
+		
+		<div class="row">
+			<div class="col-md-4">
+				<h2>Bootstrap Confirm</h2>
+			</div>
+		</div>
+
+		<div class='row'>
+			<div class="col-md-4">
+				<input type='button' id='btnConfirm' class='btn btn-primary btn-lg' value='drop all tables '>
+			</div>
+			<div class='col-md-offset-1 col-md-4'>
+				<div id='message' class='alert' role="alert"></div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Jquery -->
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<script src='fg1998/jquery-bootstrapConfirm.js'></script>
+	
+	<script>
+		 $('#btnConfirm').bootstrapConfirm(
+		 {
+		 	message: "This will drop all tables. Confirm ?",
+	 		cancelCallBack: function () {
+				 						 $('#message').html('Cancel clicked')
+										 $('#message').removeClass('alert-success') 
+										 $('#message').addClass('alert-danger');
+										},
+			confirmCallBack: function () { 
+										  $('#message').html('Confirm clicked') 
+										  $('#message').removeClass('alert-danger')
+										  $('#message').addClass('alert-success');
+										 },
+	  	});
+	</script>
+	
+	
+  </body>
+</html>
